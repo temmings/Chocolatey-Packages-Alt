@@ -2,11 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>AFxW</id>
-        <version>1.5.7</version>
+        <version>1.6.4</version>
         <authors>AKT</authors>
         <owners>temmings</owners>
-        <licenseUrl>http://www.h5.dion.ne.jp/~akt/akt_afxw.htm</licenseUrl>
-        <projectUrl>http://www.h5.dion.ne.jp/~akt/akt_afxw.htm</projectUrl>
+        <licenseUrl>http://akt.d.dooo.jp/akt_afxw.html</licenseUrl>
+        <projectUrl>http://akt.d.dooo.jp/akt_afxw.html</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>超低機能 ２画面ファイラー です。基本的に キーボードのみ で操作します。</description>
         <summary>超低機能 ２画面ファイラー です。</summary>

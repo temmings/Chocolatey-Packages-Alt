@@ -1,11 +1,26 @@
-﻿try {
-  $package = 'AFxW'
-  $destination = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)" 
+﻿$ErrorActionPreference = 'Stop';
 
-  $url = 'http://www.h5.dion.ne.jp/~akt/lzh/afxw32_157.zip'
-  $url64bit = 'http://www.h5.dion.ne.jp/~akt/lzh/afxw64_157.zip'
-  Install-ChocolateyZipPackage $package -url $url -url64bit $url64bit -unzipLocation $destination
-} catch {
-  Write-ChocolateyFailure $package "$($_.Exception.Message)"
-  throw
+. (Join-Path $PSScriptRoot common.ps1)
+
+Get-ToolsLocation
+$destination = Join-Path $env:ChocolateyToolsLocation $packageName
+
+$packageArgs = @{
+    PackageName = $packageName
+    ChecksumType = 'sha256'
+    Url = $url
+    Checksum = $checksum
+    Url64bit = $url64bit
+    Checksum64 = $checksum64
+    UnzipLocation = $destination
 }
+
+Install-ChocolateyZipPackage @packageArgs
+
+$shortcutArgs = @{
+    ShortcutFilePath = $shortcutFilePath
+    TargetPath = Join-Path $destination "$packageName.exe"
+    WorkingDirectory = $destination
+}
+
+Install-ChocolateyShortcut @shortcutArgs
